@@ -1,6 +1,0 @@
-# Конфигурация Spring Boot
-spring.main.banner-mode=off
-logging.level.com.sushibot=DEBUG
-
-# Настройки для Render
-server.port=${PORT:8080}
