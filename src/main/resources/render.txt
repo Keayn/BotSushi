@@ -1,2 +1,4 @@
+# Конфигурация Spring Boot
 spring.main.banner-mode=off
-logging.level.com.sushibot=INFO
+logging.level.com.sushibot=DEBUG
+
