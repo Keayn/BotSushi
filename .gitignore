@@ -1,25 +1,16 @@
-# IntelliJ IDEA
+# IDEA
 .idea/
 *.iml
 *.iws
 *.ipr
-out/
 
-# Build outputs
+# Maven
 target/
 build/
-*.jar
-*.war
-*.ear
-
-# Logs
-logs/
-*.log
 
 # System
 .DS_Store
 Thumbs.db
 
-# Environment variables
-.env
-*.properties
+# Logs
+*.log

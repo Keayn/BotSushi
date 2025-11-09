@@ -78,10 +78,11 @@ public class SushiBot extends TelegramLongPollingBot {
     private final Long firstAdminChatId = 456073761L;
     private String firstAdminName = "Back";
     private int requestCount = 0;
+    private final String botUsername;
 
-
-    public SushiBot() {
+    public SushiBot(String botUsername, String username) {
         super(new DefaultBotOptions());
+        this.botUsername = botUsername;
 
 
         setBotCommands();
@@ -142,22 +143,17 @@ public class SushiBot extends TelegramLongPollingBot {
 
 
 
-    @Override
-    public String getBotToken() {
-        // Безопасное получение токена из переменных окружения
-        String token = System.getenv("BOT_TOKEN");
-        if (token == null || token.isEmpty()) {
-            // Только для разработки - в Render используйте Environment Variables
-            System.out.println("123");
-            token = "";
-        }
-        return token;
-    }
+
 
     @Override
     public String getBotUsername() {
-        String username = System.getenv("BOT_USERNAME");
-        return username != null ? username : "@SushiE_VIH_bot";
+        return botUsername;
+    }
+
+    @Override
+    public String getBotToken() {
+        // Токен теперь передается через конструктор
+        return super.getBotToken();
     }
 
 
