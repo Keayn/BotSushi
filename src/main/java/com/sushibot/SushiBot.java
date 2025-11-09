@@ -81,7 +81,7 @@ public class SushiBot extends TelegramLongPollingBot {
 
 
     public SushiBot() {
-        super(new DefaultBotOptions(), "7468534510:AAG_c6-iAFnegbMNUMvMB_6J-a7oSbH0c1E");
+        super(new DefaultBotOptions());
 
 
         setBotCommands();
@@ -140,12 +140,25 @@ public class SushiBot extends TelegramLongPollingBot {
         }
     }
 
+
+
     @Override
-    public String getBotUsername() {
-        return "@SushiE_VIH_bot";
+    public String getBotToken() {
+        // Безопасное получение токена из переменных окружения
+        String token = System.getenv("BOT_TOKEN");
+        if (token == null || token.isEmpty()) {
+            // Только для разработки - в Render используйте Environment Variables
+            System.out.println("123");
+            token = "";
+        }
+        return token;
     }
 
-
+    @Override
+    public String getBotUsername() {
+        String username = System.getenv("BOT_USERNAME");
+        return username != null ? username : "@SushiE_VIH_bot";
+    }
 
 
     public void onUpdateReceived(Update update) {
