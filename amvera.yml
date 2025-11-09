@@ -1,0 +1,12 @@
+name: sushi-bot
+project: java
+subdomain: sushibot
+
+build:
+  type: custom
+  commands:
+    - mvn clean package
+
+run:
+  type: custom
+  command: java -jar target/SushiTgBot-1.0-SNAPSHOT.jar
